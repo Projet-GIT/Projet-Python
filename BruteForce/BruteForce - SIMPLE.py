@@ -1,31 +1,20 @@
-liste = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+from time import time
 
-word = input('Entrez votre mot de passe : ')
-chn = str()
+liste = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"]
+
+def bruteforce(word, length):
+    if length <= 5:  #Longueur du mot de passe
+        for letter in liste:
+            if mdp == word + letter:
+                print("Le mot de passe a été trouvé : " + word + letter)
+            else:
+                bruteforce(word + letter, length + 1)
 
 
-def recherche(chn,word):
-     if chn == word:
-            print('Vous avez trouvé le mot de passe qui est',chn)
 
-            
-for l in liste:
-    chn = l
-    recherche(chn,word)
+mdp = input("Entrez votre mot de passe : ")
 
-    for l2 in liste:
-        chn = l +l2
-        recherche(chn,word)
-       
-        for l3 in liste:
-            chn = l + l2 + l3
-            recherche(chn,word)
-
-            for l4 in liste:
-                chn = l + l2 + l3 + l4
-                recherche(chn,word)
-
-                for l5 in liste:
-                    chn = l + l2 + l3 + l4 + l5
-                    recherche(chn,word)
-                
+start = time()
+bruteforce('', 1)
+end = time()
+print('Total time: %.2f seconds' % (end - start))
