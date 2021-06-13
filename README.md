@@ -1,5 +1,4 @@
 I) Nom du projet
-
 Projet-Python
 
 II) Description du projet
