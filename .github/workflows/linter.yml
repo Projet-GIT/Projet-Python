@@ -2,13 +2,17 @@ name: CI-Linter
 
 on:
   push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: 
+     - master
+     - develop
+     - release
     
 jobs:
   test:
-    run_on: ubuntu-lastest
+    name: LINTER-CHECKOUT
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-      - uses: actions/checkout@V2
+      - uses: actions/checkout@master
+        with:
+          ref: ${{ github.ref }}
