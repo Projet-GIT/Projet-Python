@@ -1,6 +1,7 @@
 from time import time
+import string
 
-liste = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"]
+liste = string.ascii_letters
 
 def bruteforce(word, length):
     if length <= 5:  #Longueur du mot de passe
