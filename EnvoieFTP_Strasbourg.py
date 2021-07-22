@@ -85,8 +85,7 @@ def mkdir_p(path):                                  #permet de crée des dossier
         else:
             raise
 
-if __name__ == "__main__":
-#def Total():
+def STRASBOURG():
     ftp = FTP(ftp_host, ftp_login, ftp_password)     #Utilise la librairie FTP pour ce connecté
     print(ftp.getwelcome())                          #Print les info FTP
     print(ftp.nlst())                                #renvoie une liste de ce qu'il y a dans le répertoire FTP

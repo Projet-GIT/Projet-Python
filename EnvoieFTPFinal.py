@@ -85,20 +85,22 @@ def mkdir_p(path):                                  #permet de crée des dossier
         else:
             raise
 
-def GRENOBLE():
-#def Total():
+def Total():
     ftp = FTP(ftp_host, ftp_login, ftp_password)     #Utilise la librairie FTP pour ce connecté
     print(ftp.getwelcome())                          #Print les info FTP
     print(ftp.nlst())                                #renvoie une liste de ce qu'il y a dans le répertoire FTP
     while 42:                                        #instancie une boucle infinie
         directorylist = ftp.nlst()                   #Liste de ftp.nlst
-        response = input("Make a choice: 1." + directorylist[1] + " 2. quit \n")     #affichage des différent dossier avec un choix d'input pour chaque dossier
+        response = input("Choose the city: 1." + directorylist[0] + " 2." + directorylist[1] + " 3." + directorylist[2] + " 4. quit \n")     #affichage des différent dossier avec un choix d'input pour chaque dossier
         if (int(response) == 1):                    #Attribution de la valeur que l'utilisateur devras utiliser pour atteintre un dossier ou quitter
             ftp.cwd(directorylist[0])
         elif (int(response) == 2):
-            ftp.quit()
-            sys.exit(0)                    #eteint la connexion afin de ne pas créée un zombie
-
+            ftp.cwd(directorylist[1])
+        elif (int(response) == 3):
+            ftp.cwd(directorylist[2])
+        elif (int(response) == 4):
+            ftp.quit()                              #eteint la connexion afin de ne pas créée un zombie
+            sys.exit(0)
         else:
             print("Must be between 1, 2 or 3")
             ftp.quit()                              
