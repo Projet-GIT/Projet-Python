@@ -1,0 +1,23 @@
+name: CI-Linter
+
+on:
+  push:
+  pull_request:
+    branches: 
+     - master
+     - develop
+     - release
+     - 'Feature/**'
+    
+jobs:
+  write-to-console:
+    name: Console - Echo
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'SUCCESSFUL'
+
+  test:
+    name: LINTER-CHECKOUT
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
